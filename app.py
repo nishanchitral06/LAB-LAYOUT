@@ -14,15 +14,15 @@ except Exception as e:  # app stays usable without DB
     DB_ERR = str(e)
 
 CSS = """
-:root{--cyan:#22d3ee;--violet:#a78bfa;--pink:#f472b6;--text:#e6f1ff;--muted:#8fa3c4;
+:root{--cyan:#22d3ee;--blue:#3b82f6;--mint:#34d399;--amber:#fb923c;--text:#e6f1ff;--muted:#8fa3c4;
 --glass-b:rgba(255,255,255,.14)}
 *{box-sizing:border-box}
 html{background:#050816;min-height:100%}
 body{margin:0;background:transparent;color:var(--text);font-family:Inter,system-ui,sans-serif;min-height:100vh}
 body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none;
 background:radial-gradient(45vw 45vw at 10% 10%,rgba(34,211,238,.32),transparent 60%),
-radial-gradient(45vw 45vw at 90% 15%,rgba(167,139,250,.34),transparent 60%),
-radial-gradient(45vw 45vw at 55% 100%,rgba(244,114,182,.26),transparent 60%);
+radial-gradient(45vw 45vw at 90% 15%,rgba(59,130,246,.34),transparent 60%),
+radial-gradient(45vw 45vw at 55% 100%,rgba(52,211,153,.22),transparent 60%);
 animation:drift 16s ease-in-out infinite alternate}
 body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
@@ -36,7 +36,7 @@ mask-image:radial-gradient(ellipse at center,#000 25%,transparent 80%)}
 .shell{max-width:1500px;margin:0 auto;padding:22px}
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;margin-bottom:20px;animation:rise .6s both}
 .brand{font-family:Orbitron,Inter,sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em;margin:0;
-background:linear-gradient(90deg,var(--cyan),var(--violet) 55%,var(--pink));-webkit-background-clip:text;background-clip:text;
+background:linear-gradient(90deg,var(--cyan),var(--blue) 55%,var(--mint));-webkit-background-clip:text;background-clip:text;
 color:transparent;text-shadow:0 0 30px rgba(34,211,238,.25)}
 .sub{color:var(--muted);font-size:13px;margin-top:4px;letter-spacing:.04em}
 .badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;font-size:12px;
@@ -61,14 +61,14 @@ color:var(--text)!important;font:500 14px Inter,sans-serif;-moz-appearance:textf
 background:rgba(255,255,255,.08);color:var(--cyan);font-size:15px;padding:0;transition:.15s}
 .dash-input-stepper:hover{background:rgba(34,211,238,.25);box-shadow:0 0 12px rgba(34,211,238,.4)}
 .btn{cursor:pointer;border:0;border-radius:14px;padding:12px 18px;font:700 13px Orbitron,Inter,sans-serif;letter-spacing:.12em;
-text-transform:uppercase;color:#04101c;background:linear-gradient(90deg,var(--cyan),var(--violet));
+text-transform:uppercase;color:#04101c;background:linear-gradient(90deg,var(--cyan),var(--blue));
 box-shadow:0 6px 24px rgba(34,211,238,.35);transition:transform .18s,box-shadow .18s,filter .18s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(167,139,250,.55);filter:brightness(1.08)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(59,130,246,.55);filter:brightness(1.08)}
 .btn:active{transform:translateY(0)}
 .btn.full{width:100%;margin-top:22px}
 .btn.ghost{color:var(--text);background:rgba(255,255,255,.08);border:1px solid var(--glass-b);box-shadow:none;font-size:12px;padding:9px 14px}
 .btn.ghost:hover{background:rgba(255,255,255,.15);box-shadow:0 0 18px rgba(34,211,238,.3)}
-.btn.danger:hover{box-shadow:0 0 18px rgba(244,114,182,.5);border-color:var(--pink)}
+.btn.danger:hover{box-shadow:0 0 18px rgba(251,146,60,.5);border-color:var(--amber)}
 .err{color:#fda4af;font-size:13px;margin-top:10px;min-height:16px}
 .okmsg{color:#6ee7b7;font-size:13px;margin-left:14px}
 
@@ -77,7 +77,7 @@ box-shadow:0 6px 24px rgba(34,211,238,.35);transition:transform .18s,box-shadow 
 background:rgba(255,255,255,.05)!important;color:var(--muted)!important;font:600 13px Inter,sans-serif!important;
 letter-spacing:.06em;transition:.2s;width:auto!important}
 .tab:hover{color:var(--text)!important;background:rgba(255,255,255,.12)!important}
-.tab-sel,.tab-sel:hover{color:#04101c!important;background:linear-gradient(90deg,var(--cyan),var(--violet))!important;
+.tab-sel,.tab-sel:hover{color:#04101c!important;background:linear-gradient(90deg,var(--cyan),var(--blue))!important;
 border-color:transparent!important;box-shadow:0 0 22px rgba(34,211,238,.45)}
 .tab-body{animation:rise .45s both}
 .row{display:flex;gap:24px;flex-wrap:wrap}
@@ -88,7 +88,7 @@ border-color:transparent!important;box-shadow:0 0 22px rgba(34,211,238,.45)}
 border:1px solid var(--glass-b);box-shadow:inset 0 1px 0 rgba(255,255,255,.18);transition:.25s}
 .stat:hover{transform:translateY(-3px);box-shadow:0 0 28px rgba(34,211,238,.3)}
 .stat .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.stat .v{font:700 30px Orbitron,Inter,sans-serif;margin:6px 0 2px;background:linear-gradient(90deg,var(--cyan),var(--violet));
+.stat .v{font:700 30px Orbitron,Inter,sans-serif;margin:6px 0 2px;background:linear-gradient(90deg,var(--cyan),var(--blue));
 -webkit-background-clip:text;background-clip:text;color:transparent}
 .stat .d{font-size:12px;color:#6ee7b7}
 .chk label{color:var(--muted);font-size:13px;cursor:pointer}
@@ -107,7 +107,7 @@ background:rgba(5,8,22,.45);border:1px solid rgba(255,255,255,.14);color:var(--t
 .dash-dropdown-option{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;color:var(--text)!important;
 background:transparent!important;cursor:pointer;font:500 14px Inter,sans-serif}
 .dash-dropdown-option:hover,.dash-dropdown-option[data-highlighted]{background:rgba(34,211,238,.16)!important}
-.dash-dropdown-option.selected{background:rgba(167,139,250,.22)!important;box-shadow:inset 0 0 0 1px rgba(167,139,250,.5)}
+.dash-dropdown-option.selected{background:rgba(59,130,246,.22)!important;box-shadow:inset 0 0 0 1px rgba(59,130,246,.5)}
 .dash-dropdown-option input{accent-color:var(--cyan)}
 .dash-dropdown-content input[type=search],.dash-dropdown-content input[type=text]{background:rgba(5,8,22,.6);color:var(--text);
 border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:6px 8px}
@@ -137,7 +137,7 @@ DEFAULT_FLOWS = {("Receiving", "Storage"): 50, ("Storage", "Machining"): 40,
                  ("Paint", "Shipping"): 25, ("Storage", "Assembly"): 15,
                  ("Assembly", "Shipping"): 20}
 
-NEON = ["#22d3ee", "#a78bfa", "#f472b6", "#34d399", "#fbbf24", "#60a5fa", "#fb7185", "#2dd4bf", "#c084fc", "#facc15"]
+NEON = ["#22d3ee", "#3b82f6", "#fb923c", "#34d399", "#fbbf24", "#60a5fa", "#f87171", "#2dd4bf", "#a3e635", "#facc15"]
 TXT = "#e6f1ff"
 
 
@@ -161,8 +161,8 @@ TABLE_KW = dict(
     style_data={"backgroundColor": "rgba(255,255,255,.04)", "color": TXT, "border": "1px solid rgba(255,255,255,.08)"},
     style_data_conditional=[{"if": {"state": "active"}, "backgroundColor": "rgba(34,211,238,.18)",
                              "border": "1px solid #22d3ee"},
-                            {"if": {"state": "selected"}, "backgroundColor": "rgba(167,139,250,.2)",
-                             "border": "1px solid #a78bfa"}],
+                            {"if": {"state": "selected"}, "backgroundColor": "rgba(59,130,246,.2)",
+                             "border": "1px solid #3b82f6"}],
     style_cell={"fontFamily": "Inter, sans-serif", "padding": "9px 12px", "backgroundColor": "transparent",
                 "color": TXT, "minWidth": "80px", "textAlign": "left"},
     css=[{"selector": ".dash-spreadsheet td input, .dash-spreadsheet td textarea",
@@ -218,7 +218,7 @@ def layout_fig(res, show_flows=True, top_n=8):
             fig.add_annotation(x=R[j, 0] + R[j, 2] / 2, y=R[j, 1] + R[j, 3] / 2,
                                ax=R[i, 0] + R[i, 2] / 2, ay=R[i, 1] + R[i, 3] / 2,
                                xref="x", yref="y", axref="x", ayref="y", showarrow=True,
-                               arrowhead=2, arrowsize=1.1, arrowwidth=1 + 2.5 * f / mx, arrowcolor="rgba(244,114,182,.7)",
+                               arrowhead=2, arrowsize=1.1, arrowwidth=1 + 2.5 * f / mx, arrowcolor="rgba(251,146,60,.7)",
                                standoff=22, startstandoff=22)
     fig.update_xaxes(range=[-1, W + 1], showgrid=True, gridcolor="rgba(255,255,255,.06)", zeroline=False, constrain="domain")
     fig.update_yaxes(range=[-1, H + 1], scaleanchor="x", showgrid=True, gridcolor="rgba(255,255,255,.06)", zeroline=False)
@@ -404,7 +404,7 @@ def render(res, show):
                                 fill="tozeroy", fillcolor="rgba(34,211,238,.12)"))
     conv.update_layout(title="Convergence", xaxis_title="step", yaxis_title="cost")
     heat = go.Figure(go.Heatmap(z=hm.values, x=hm.columns, y=hm.index,
-                                colorscale=[[0, "#0b1224"], [.5, "#7c3aed"], [1, "#22d3ee"]]))
+                                colorscale=[[0, "#0b1224"], [.5, "#2563eb"], [1, "#22d3ee"]]))
     heat.update_layout(title="Flow heatmap")
     for f in (conv, heat):
         style_fig(f, 340)
