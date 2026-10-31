@@ -1,0 +1,6 @@
+dash>=2.17
+gunicorn
+numpy
+pandas
+plotly
+requests
